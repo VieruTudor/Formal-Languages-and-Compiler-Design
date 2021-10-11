@@ -1,0 +1,25 @@
+# p1, with errors
+entry
+
+entry_main():
+    number n1 -> 12;
+    number n2 -> 60
+
+    number rest
+
+    while n2 != 0:
+        rest -> n1 % n2
+        n1 -> n2
+        n2 -> rest
+    exit_while     
+
+    string message -> "the gcd of the 2 numbers is 
+
+    show(message, n1)
+
+exit_main
+
+exit
+
+Error 1 : unexpected identifier on line 4 - no line (or constant/variable) should end with a separator (except '\n')
+Error 2 : each scope should be in the format "entry.*" - "exit.*" - line 9 NO

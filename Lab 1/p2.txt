@@ -1,0 +1,32 @@
+# compute the maximum of 3 numbers
+entry
+
+entry_main():
+    number n1
+    number n2
+    number n3
+
+    number maximum
+
+    read(n1)
+    read(n2)
+    read(n3)
+
+    entry_if n1 > n2 and n1 > n3:
+        maximum -> n1
+    exit_if
+
+    entry_if n2 > n1 and n2 > n3:
+        maximum -> n2
+    exit_if
+
+    entry_if n3 > n1 and n3 > n2:
+        maximum -> n3
+    exit_if
+
+    show(maximum)
+
+exit_main
+
+exit
+
