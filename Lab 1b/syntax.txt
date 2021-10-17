@@ -1,0 +1,23 @@
+program = "entry" ":" cmpdstmt "\n" "end"
+declaration = (basictype " " IDENTIFIER) | arraydecl
+basictype = "number" | "string" | "char"
+arraydecl = "array" "->" basictype IDENTIFIER "[" "]"
+cmpdstmt = "{" stmtlist "}"
+stmtlist = stmt | stmt "\n" stmtlist
+stmt = simplstmt | structstmt
+simpltstmt = assignstmt | iostmt
+assignstmt = IDENTIFIER "->" expression
+expression = [expression("+"|"-")] term
+term = term("*" | "/" | "%") factor | factor
+factor = "(" expression ")" | integer | IDENTIFIER | ArrayIdentifier
+ArrayIdentifier = IDENTIFIER "[" integer "]"
+iostmt = ("read" "(" IDENTIFIER ")") | ("show" "(" (IDENTIFIER | CONSTANT) ")")
+structstmt = cmpdstmt | ifstmt | whilestmt | forstmt
+ifstmt = "if" condition ":" stmt ["else" stmt]
+whilestmt = "while" condition ":" stmt
+forstmt = "for" forcondition ":" stmt 
+forcondition = assignstmt "," IDENTIFIER "," number
+condition = expression RELATION expression {comprel condition}
+RELATION = "<" | "<=" | "==" | "!=" | ">=" | ">"
+comprel = "and" | "or"
+
