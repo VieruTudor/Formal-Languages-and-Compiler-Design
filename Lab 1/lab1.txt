@@ -1,46 +1,46 @@
 # p1. compute the gcd of 2 numbers
 entry
 
-entry_main():
+fnc main():
+{
     number n1 -> 12
     number n2 -> 60
 
     number rest
 
-    entry_while n2 != 0:
+    while n2 != 0:
+    {
         rest -> n1 % n2
         n1 -> n2
         n2 -> rest
-    exit_while     
+    }
 
     show(n1)
-
-exit_main
-
+}
 exit
 ---------------------
 
 # p1, with errors
 entry
 
-entry_main():
+fnc main():
+{
     number n1 -> 12;
     number n2 -> 60
 
     number rest
 
-    while n2 != 0:
+    entry_while n2 != 0:
+    {
         rest -> n1 % n2
         n1 -> n2
         n2 -> rest
-    exit_while     
+    }     
 
-    string message -> "the gcd of the 2 numbers is 
+    string message -> "the gcd of the 2 numbers is
 
     show(message, n1)
-
-exit_main
-
+}
 exit
 
 Error 1 : unexpected identifier on line 4 - no line (or constant/variable) should end with a separator (except '\n')
@@ -50,7 +50,8 @@ Error 2 : string should be defined between two " signs, one is missing
 # p2. compute the maximum of 3 numbers
 entry
 
-entry_main():
+fnc main():
+{
     number n1
     number n2
     number n3
@@ -61,101 +62,71 @@ entry_main():
     read(n2)
     read(n3)
 
-    entry_if n1 > n2 and n1 > n3:
+    if n1 > n2 and n1 > n3:
+    {
         maximum -> n1
-    exit_if
+    }
 
-    entry_if n2 > n1 and n2 > n3:
-        maximum -> n2
-    exit_if
+    if n2 > n1 and n2 > n3:
+    {
+         maximum -> n2
+    }
 
-    entry_if n3 > n1 and n3 > n2:
+    if n3 > n1 and n3 > n2:
+    {
         maximum -> n3
-    exit_if
+    }
 
     show(maximum)
-
-exit_main
-
+}
 exit
 ---------------------
 
-# compute the maximum of 3 numbers
-entry
-
-entry_main():
-    number n1
-    number n2
-    number n3
-
-    number maximum
-
-    read(n1)
-    read(n2)
-    read(n3)
-
-    entry_if n1 > n2 and n1 > n3:
-        maximum -> n1
-    exit_if
-
-    entry_if n2 > n1 and n2 > n3:
-        maximum -> n2
-    exit_if
-
-    entry_if n3 > n1 and n3 > n2:
-        maximum -> n3
-    exit_if
-
-    show(maximum)
-
-exit_main
-
-exit
----------------------
 
 # p3. compute the sum of n numbers - without arrays
 entry
 
-entry_main()
+fnc main()
+{
     number n
     number sum -> 0
 
     read(n)
 
-    entry_for i -> 1, n, 1:
+    for i -> 1, n, 1:
+    {   
         read(x)
         sum -> sum + x
-    exit_for
+    }
 
     show(sum)
-
-exit_main
-
+}
 exit
 ---------------------
 
 # p3. compute the sum of n numbers - with arrays
 entry
 
-entry_main()
+fnc main()
+{
     number n
     number sum -> 0
     array->number numbers[]
 
     read(n)
 
-    entry_for i -> 1, n, 1:
+    for i -> 1, n, 1:
+    {
         read(x)
         numbers -> numbers + x
-    exit_for
+    }
 
-    entry_for i -> 1, n, 1:
+    for i -> 1, n, 1:
+    {
         sum -> sum + numbers[i]
-    exit_for
+    }
 
     show(sum)
-
-exit_main
-
+}
 exit
 ---------------------
