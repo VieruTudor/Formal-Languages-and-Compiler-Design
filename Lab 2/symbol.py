@@ -4,7 +4,7 @@ class SymbolTable:
         self.hashtable = [[]] * capacity
 
     def hashFunction(self, k: str):
-        return (sum(map(ord, k)) % self.capacity) + 1
+        return sum(map(ord, k)) % self.capacity
 
     def get(self, value):
         pos = self.hashFunction(value)
@@ -22,8 +22,7 @@ class SymbolTable:
         return pos
 
 
-
-st = SymbolTable(6)
+st = SymbolTable(1)
 print("insert1 a", st.insert("a"))
 print("insert1 b", st.insert("b"))
 print("insert2 a", st.insert("a"))
