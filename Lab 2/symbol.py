@@ -1,14 +1,16 @@
-class SymbolTable:
+class HashTable:
     def __init__(self, capacity):
         self.capacity = capacity
-        self.hashtable = [[]] * capacity
+        self.table = []
+        for x in range(capacity):
+            self.table.append([])
 
     def hashFunction(self, k: str):
         return sum(map(ord, k)) % self.capacity
 
     def get(self, value):
         pos = self.hashFunction(value)
-        if value not in self.hashtable[pos]:
+        if value not in self.table[pos]:
             return -1
         return pos
 
@@ -16,15 +18,30 @@ class SymbolTable:
         pos = self.get(value)
         if pos == -1:
             hashkey = self.hashFunction(value)
-            self.hashtable[hashkey].append(value)
+            self.table[hashkey].append(value)
             return hashkey
 
         return pos
 
 
-st = SymbolTable(1)
-print("insert1 a", st.insert("a"))
-print("insert1 b", st.insert("b"))
-print("insert2 a", st.insert("a"))
-print("get a", st.get("a"))
-print("get c", st.get("c"))
+class SymbolTable:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.hashtable = HashTable(capacity)
+
+    def get(self, value):
+        return self.hashtable.get(value)
+
+    def insert(self, value: str):
+        return self.hashtable.insert(value)
+
+
+s = SymbolTable(6)
+
+print(s.insert('a'))
+print(s.insert('b'))
+print(s.insert('a'))
+print(s.get('c'))
+print(s.hashtable.table)
+
+

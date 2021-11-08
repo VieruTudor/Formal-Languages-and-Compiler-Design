@@ -30,6 +30,8 @@ for
 and
 or
 array
+entry
+exit
 number
 char
 string
