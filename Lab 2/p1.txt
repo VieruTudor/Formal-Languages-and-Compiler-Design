@@ -1,0 +1,21 @@
+entry:
+{
+    number n1
+    number n2
+
+    n1 -> 12
+    n2 -> 60;
+
+    number rest
+
+    while n2 != 0:
+    {
+        rest -> n1 % n2
+        n1 -> n2
+        n2 -> rest
+        a-> a - b
+    }
+
+    show(n1)
+}
+exit
